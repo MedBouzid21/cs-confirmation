@@ -124,3 +124,5 @@ input,select,textarea{font-size:16px}
   .stats b{font-size:22px}
   .stats span{font-size:12px}
 }
+.pack{margin:4px 0 6px;padding-left:18px;font-size:13px;color:#333}
+.pack li{margin:1px 0}

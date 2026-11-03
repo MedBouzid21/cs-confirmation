@@ -129,6 +129,7 @@
   function itemsHtml(o) {
     return o.items.map(function (i) {
       return '<p>' + i.qty + ' × ' + esc(i.title) + (i.variant ? ' — ' + esc(i.variant) : '') + '</p>' +
+        (i.contents ? '<ul class="pack">' + i.contents.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' : '') +
         i.props.map(function (p) { return '<small>' + esc(p.key) + ' : ' + esc(p.value) + '</small>'; }).join('');
     }).join('');
   }
@@ -245,7 +246,7 @@
   function designation(o) {
     return o.items.map(function (i) {
       var parf = i.props.find(function (p) { return /parfum/i.test(p.key); });
-      return i.qty + 'x ' + i.title + (i.variant ? ' ' + i.variant : '') + (parf ? ' (parfum : ' + parf.value + ')' : '');
+      return i.qty + 'x ' + i.title + (i.variant ? ' ' + i.variant : '') + (i.contents ? ' [' + i.contents.join(', ') + ']' : '') + (parf ? ' (parfum : ' + parf.value + ')' : '');
     }).join(' + ');
   }
 
