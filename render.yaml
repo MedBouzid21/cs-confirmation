@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: cs-confirmation
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: STORE_NAME
+        value: Clean Squad
+      - key: SHOPIFY_SHOP
+        value: rgpbgc-fd.myshopify.com
+      - key: SHOPIFY_CLIENT_ID
+        sync: false
+      - key: SHOPIFY_CLIENT_SECRET
+        sync: false
+      - key: ADEX_USER
+        sync: false
+      - key: ADEX_TOKEN
+        sync: false
+      - key: AGENT_PASSWORD
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: LAUNCH_DATE
+        value: "2026-11-03"
+      - key: SESSION_SECRET
+        generateValue: true

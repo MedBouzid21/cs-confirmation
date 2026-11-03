@@ -1,0 +1,10 @@
+{
+  "name": "cs-confirmation",
+  "version": "1.0.0",
+  "description": "Clean Squad — application de confirmation des commandes (Shopify + Adex)",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node server.js", "dev": "MOCK=1 AGENT_PASSWORD=demo node server.js" },
+  "dependencies": { "express": "^4.21.2" }
+}
