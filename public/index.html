@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.svg">
+  <title>Confirmation · Clean Squad</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Connexion -->
+  <section id="login" class="login" hidden>
+    <form id="loginForm" class="login__card">
+      <div class="brand brand--big"><span>THE</span> CLEAN SQUAD</div>
+      <p class="login__sub">Espace confirmation des commandes</p>
+      <label>Ton prénom<input name="name" autocomplete="given-name" placeholder="Ex. Sarra" required></label>
+      <label>Mot de passe<input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="btn btn--red btn--block" type="submit">Commencer à confirmer</button>
+      <p class="login__err" id="loginErr" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- Application -->
+  <section id="app" hidden>
+    <header class="top">
+      <div class="brand"><span>THE</span> CLEAN SQUAD</div>
+      <div class="top__right">
+        <button class="icon-btn" id="refreshBtn" aria-label="Actualiser" title="Actualiser">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+        </button>
+        <button class="icon-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+      <div class="menu" id="menu" hidden>
+        <p class="menu__who" id="who"></p>
+        <button id="pickupBtn">Demander l'enlèvement Adex</button>
+        <button id="logoutBtn">Se déconnecter</button>
+      </div>
+    </header>
+
+    <div class="banner" id="banner" hidden></div>
+
+    <div class="stats">
+      <div><b id="stToday">0</b><span>Confirmées aujourd'hui</span></div>
+      <div><b id="stEarnToday">0 DT</b><span>Gains aujourd'hui</span></div>
+      <div><b id="stEarnMonth">0 DT</b><span>Gains du mois</span></div>
+      <div><b id="stRate">—</b><span>Taux de livraison</span></div>
+    </div>
+
+    <nav class="tabs" id="tabs" aria-label="Filtrer par statut"></nav>
+
+    <div class="search">
+      <input id="search" type="search" placeholder="Rechercher : n°, nom, téléphone, ville…" autocomplete="off">
+    </div>
+
+    <main id="list" class="list" aria-live="polite"></main>
+    <p class="empty" id="empty" hidden>Aucune commande ici 👌</p>
+  </section>
+
+  <!-- Feuille : détail / confirmation -->
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet__overlay" data-close></div>
+    <div class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet__head">
+        <h2 id="sheetTitle"></h2>
+        <button class="icon-btn" data-close aria-label="Fermer">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="sheet__body" id="sheetBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+  <script src="/app.js"></script>
+</body>
+</html>
